@@ -1,5 +1,20 @@
-# Curso
+# Brief introduction to Angular 4
+This repo is for educational purpose only. I'll be giving an Introduction to Angular 4 in my job so I decided to publish the practice app we'll be developing :).
 
+The application is a simple ToDo app. In order to make the CRUD operations of the tasks I decided to use [`json-server`](https://github.com/typicode/json-server) as a fake API.
+
+## Usage:
+To install `json-server` package run the following command:
+
+`npm install -g json-server` (notice this will install the package globally)
+
+Inside the app directory create a `db.json` file and insert the resource you'll be using: `"todo: []"`.
+
+Then you can initialize the fake API running the following command in your terminal: `json-server --watch db.json`. Remember to run that command inside you working directory.
+
+Finally, you can start the ToDo app  using `ng serve --open`.
+
+---
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server

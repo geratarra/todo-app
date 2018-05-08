@@ -1,0 +1,47 @@
+<table style="margin-top:5%; table-layout:fixed;" class="highlight responsive-table centered">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Title</th>
+            <th>Task description</th>
+            <th>Status</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="tasks?.length !== 0; else noTasks">
+            <tr *ngFor="let task of tasks">
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>
+                    <label [for]="'done' + task.id">
+                        <input (click)="updateTaskStatus(task)" [checked]="task.status" type="checkbox" class="filled-in" [id]="'done' + task.id"
+                        />
+                        <span></span>
+                    </label>
+                </td>
+                <td>
+                    <a (click)="deleteTask(task.id)" class="btn-floating btn waves-effect waves-light purple">
+                        <i class="material-icons">delete</i>
+                    </a>
+                </td>
+                <td>
+                    <a [routerLink]="['/manage', task.id]" class="btn-floating btn waves-effect waves-light red">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+            </tr>
+        </ng-container>
+        <ng-template #noTasks>
+            <tr>
+                <td colspan="6">
+                    <h5>
+                        Go have some fun!
+                    </h5>
+                </td>
+            </tr>
+        </ng-template>
+    </tbody>
+</table>
